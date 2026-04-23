@@ -5,8 +5,14 @@ on:
     inputs:
       greeting:
         description: Message to show
-        required: true
         default: Hello!
+      printEnv:
+        description: Choose to print the environment
+        type: boolean
+        default: false
+
+env:
+  FOO: bar
 
 jobs:
   job1:
@@ -18,3 +24,4 @@ jobs:
         run: uname -a
       - name: Print environment
         run: echo ${{ toJSON(env) }}
+        if: inputs.printEnv == true
