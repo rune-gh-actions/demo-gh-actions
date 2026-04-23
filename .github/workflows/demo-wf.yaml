@@ -25,6 +25,7 @@ jobs:
       - name: Print environment
         run: echo '${{ toJSON(env) }}'
         if: inputs.printEnv == true
+      - uses: actions/checkout@v6
       - name: Greet using Docker
         uses: ./.github/actions
         with:
